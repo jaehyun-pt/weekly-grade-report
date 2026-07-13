@@ -41,6 +41,35 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
 .qs-apply-btn{padding:9px;background:#1a4fa8;color:#fff;border:none;border-radius:7px;cursor:pointer;font-size:12px;font-weight:700;width:100%;font-family:'Pretendard','Noto Sans KR',sans-serif;transition:background .12s;}
 .qs-apply-btn:hover{background:#1540a0;}
 
+/* ════ ROSTER PANEL (개강 대상 명단) ════ */
+.roster-panel{background:#fff;border:1.5px solid #b8ccf0;border-radius:10px;padding:11px 12px;margin:6px 0 2px;}
+.roster-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;}
+.roster-title{font-size:12px;font-weight:800;color:#1a4fa8;display:flex;align-items:center;gap:5px;}
+.roster-count{font-size:10px;font-weight:700;color:#fff;background:#e07818;border-radius:10px;padding:1px 8px;}
+.roster-count.done-all{background:#1f9e57;}
+.roster-controls{display:flex;gap:5px;margin-bottom:8px;}
+.roster-controls select{flex:1;font-size:10.5px;padding:4px 6px;border:1px solid #ccd5e8;border-radius:6px;background:#fff;color:#1a1a2e;font-family:'Pretendard','Noto Sans KR',sans-serif;}
+.roster-day-btns{display:flex;gap:3px;}
+.roster-day-btn{padding:4px 8px;border:1.5px solid #ccd5e8;border-radius:6px;background:#fff;cursor:pointer;font-size:10.5px;font-weight:700;color:#8a8aaa;font-family:'Pretendard','Noto Sans KR',sans-serif;}
+.roster-day-btn.on{background:#1a4fa8;border-color:#1a4fa8;color:#fff;}
+.roster-list{display:flex;flex-direction:column;gap:5px;max-height:260px;overflow-y:auto;}
+.roster-card{display:flex;align-items:center;gap:8px;padding:7px 9px;border:1.5px solid #d8e0f0;border-radius:8px;background:#f8fafe;cursor:pointer;transition:all .12s;position:relative;}
+.roster-card:hover{border-color:#a0b8e0;background:#f0f5ff;}
+.roster-card.active{border-color:#1a4fa8;background:#e8f0ff;box-shadow:0 0 0 2px rgba(26,79,168,.12);}
+.roster-card.done{opacity:.5;background:#f0f4f0;border-color:#c8dcc8;}
+.roster-card-main{flex:1;min-width:0;}
+.roster-card-name{font-size:12px;font-weight:700;color:#1a2a4a;}
+.roster-card-name .rc-dept{font-size:9px;font-weight:600;color:#7a7a9a;margin-left:4px;}
+.roster-card-sub{font-size:10px;color:#6a7a9a;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.roster-day-badge{flex-shrink:0;font-size:10px;font-weight:800;color:#fff;border-radius:6px;padding:2px 7px;background:#2a6fd8;}
+.roster-day-badge.urgent{background:#d94f4f;}
+.roster-day-badge.soon{background:#e07818;}
+.roster-done-btn{flex-shrink:0;width:22px;height:22px;border-radius:6px;border:1.5px solid #c8d5f0;background:#fff;cursor:pointer;font-size:12px;color:#8a9ab8;display:flex;align-items:center;justify-content:center;padding:0;}
+.roster-done-btn:hover{border-color:#1f9e57;color:#1f9e57;}
+.roster-done-btn.on{background:#1f9e57;border-color:#1f9e57;color:#fff;}
+.roster-empty{font-size:10.5px;color:#8a9ab8;line-height:1.6;text-align:center;padding:14px 8px;background:#f5f7fb;border-radius:7px;}
+.roster-empty b{color:#e07818;}
+
 .app{display:grid;grid-template-columns:308px 1fr;min-height:100vh;}
 
 /* ── Sidebar ── */
@@ -367,15 +396,15 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
 <aside class="sb">
   <div class="sb-brand">밀당PT <span>성적표 편집기</span></div>
 
-  <!-- ── [그룹0] 고정 설정 (선생님 · 여러 학생 공통) ── -->
+  <!-- ── [그룹0] 선생님 정보 (여러 학생 공통) ── -->
   <div class="sb-group g-fixed" style="margin-top:6px;">
   <div class="qs-panel" style="background:transparent;border:none;padding:0;margin:0;">
     <div class="qs-header" id="qsHeader">
       <div class="qs-header-left">
         <span class="qs-icon">📌</span>
         <div>
-          <div class="qs-title">고정 설정</div>
-          <div class="qs-desc">여러 학생 공통 · 한 번만 설정</div>
+          <div class="qs-title">선생님 정보</div>
+          <div class="qs-desc">여러 학생 공통 · 명단 필터 기준</div>
         </div>
       </div>
       <button class="qs-toggle-btn" id="qsToggleBtn">접기 ▲</button>
@@ -383,23 +412,24 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
     <div class="qs-body" id="qsBody">
       <div class="fg"><label>담당 선생님</label><input id="sTeacher" value="김밀당T"></div>
       <div class="fg"><label>학습 기간</label><input id="sPeriod" value="6월 3주차"></div>
-      <div class="fg"><label>학습 소단원</label>
-        <select id="sUnit"><option value="">— 과목 먼저 선택 —</option></select>
-      </div>
-      <div class="qs-fixed-hint" style="font-size:10px;color:#6a80aa;line-height:1.5;background:#fff;border-radius:6px;padding:7px 9px;border:1px solid #d0dcf0;">
-        💡 학생 이름·학년·과목은 아래 <b>코다 붙여넣기</b>로 채워지고, 소단원은 과목에 맞춰 목록이 갱신됩니다.
-      </div>
     </div>
   </div>
   </div><!-- /g-fixed -->
 
-  <!-- ══ 코다/노션 TSV 붙여넣기 ══ -->
-  <div class="paste-panel">
-    <div class="paste-panel-title">📋 코다·노션 데이터 붙여넣기</div>
-    <div class="paste-panel-sub">코다 표에서 한 행을 복사 후 붙여넣기 하세요.<br>순서: 학생 · 현재 학년 · 현 커리(과목)</div>
-    <textarea class="paste-area" id="pasteArea" placeholder="설겸&#9;고1&#9;공통수학1"></textarea>
-    <div class="paste-result" id="pasteResult"></div>
-    <div class="paste-hint">탭(⇥) 구분 · 붙여넣으면 학생 정보가 자동 채워집니다</div>
+  <!-- ══ 개강 대상 명단 (담당 선생님 기준 자동 필터) ══ -->
+  <div class="roster-panel" id="rosterPanel">
+    <div class="roster-head">
+      <div class="roster-title">🗓️ 개강 대상 명단</div>
+      <span class="roster-count" id="rosterCount">–</span>
+    </div>
+    <div class="roster-controls">
+      <select id="rosterDeptFilter"><option value="">전체 부서</option></select>
+      <div class="roster-day-btns">
+        <button class="roster-day-btn" id="rosterDay7" data-day="7">7일차</button>
+        <button class="roster-day-btn on" id="rosterDay10" data-day="10">10일차</button>
+      </div>
+    </div>
+    <div class="roster-list" id="rosterList"></div>
   </div>
 
   <!-- ══ [그룹1] 학생 정보 ══ -->
@@ -423,8 +453,11 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
     <div class="fg"><label>과목 (커리)</label>
       <select id="sSubject"><option value="">— 선택 —</option></select>
     </div>
+    <div class="fg"><label>학습 소단원</label>
+      <select id="sUnit"><option value="">— 과목 먼저 선택 —</option></select>
+    </div>
     <div class="fg"><label>소단원 직접입력 (선택)</label><input id="sUnitCustom" placeholder="목록에 없으면 직접 입력"></div>
-    <div style="font-size:10px;color:#8a9ab8;line-height:1.5;">이름·학년·과목은 코다 붙여넣기로 자동 입력됩니다.</div>
+    <div style="font-size:10px;color:#8a9ab8;line-height:1.5;">위 <b>개강 대상 명단</b>에서 학생을 클릭하면 이름·학년·과목이 자동 입력됩니다.</div>
   </div>
 
   </div><!-- /g-info -->
@@ -696,6 +729,8 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
   </div>
 </div>
 
+<!-- 명단 데이터: n8n이 매주 이 파일을 덮어씀. 없으면 아래 스크립트의 샘플이 대신 표시됨 -->
+<script src="roster.js"></script>
 <script>
 /* ── 테마 ── */
 const THEMES = {
@@ -1198,10 +1233,17 @@ function renderRoadmap() {
     </div>`).join('');
 }
 
+/* ── 담당 선생님 표시명: 리포트에는 항상 뒤에 T ── */
+function teacherName(){
+  var t = (S.teacher||'').trim();
+  if(!t) return t;
+  return /T$/i.test(t) ? t : t + 'T';
+}
+
 /* ── 전체 렌더 ── */
 function render() {
   document.getElementById('rcName').textContent      = S.name + ' 학생 성적표';
-  document.getElementById('rcMeta').innerHTML        = S.grade + ' &nbsp;|&nbsp; ' + S.teacher;
+  document.getElementById('rcMeta').innerHTML        = S.grade + ' &nbsp;|&nbsp; ' + teacherName();
   document.getElementById('chipPeriod').textContent  = S.period;
   document.getElementById('chipSubject').textContent = S.subject;
   document.getElementById('chipUnit').textContent    = S.unit;
@@ -1209,7 +1251,7 @@ function render() {
   document.getElementById('rcScoreSub').textContent  = S.grade;
   document.getElementById('rcComment').innerHTML    = fillComment();
   document.getElementById('rcSummary').innerHTML    = fillSummary();
-  document.getElementById('rcTeacher').textContent   = S.teacher;
+  document.getElementById('rcTeacher').textContent   = teacherName();
   document.getElementById('rcFooterRight').innerHTML = S.name + ' &nbsp;·&nbsp; ' + S.grade;
   setGrade('attitude', S.attitude);
   setGrade('achieve',  S.achieve);
@@ -1806,7 +1848,7 @@ document.getElementById('btnKakao').addEventListener('click', async () => {
     x.fillText(nm+' 학생 성적표',36,72);
     x.font='500 13px "Pretendard","Noto Sans KR"';
     x.fillStyle='rgba(255,255,255,0.82)';
-    x.fillText(S.grade+' · '+S.period+' · '+S.teacher,36,96);
+    x.fillText(S.grade+' · '+S.period+' · '+teacherName(),36,96);
 
     /* ─ 점수 블록 (우측, 강조) ─ */
     x.fillStyle='rgba(0,0,0,0.22)';
@@ -2424,6 +2466,179 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
   });
 })();
 
+
+/* ══════════════════════════════════════════
+   개강 대상 명단 모듈
+   · roster.js 의 window.ROSTER 를 읽어 리스트로 표시
+   · 데이터 계약: { dept, name, grade, curri, start:'YYYY-MM-DD', ended:boolean }
+   · 없으면 아래 샘플이 대신 표시됨
+══════════════════════════════════════════ */
+(function(){
+  function ago(n){ var d=new Date(); d.setDate(d.getDate()-n);
+    return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  var SAMPLE_ROSTER = [
+    { dept:'수학', name:'최서현', grade:'고2', curri:'미적분1',   start:ago(8), ended:false, teacher:'김밀당T' },
+    { dept:'수학', name:'설겸',   grade:'고1', curri:'공통수학1', start:ago(2), ended:false, teacher:'김밀당T' },
+    { dept:'수학', name:'김도윤', grade:'중3', curri:'중3-1',     start:ago(5), ended:false, teacher:'김밀당' },
+    { dept:'영어', name:'이하늘', grade:'중2', curri:'',          start:ago(1), ended:false, teacher:'박영어T' },
+    { dept:'수학', name:'박서진', grade:'고2', curri:'대수',      start:ago(6), ended:false, teacher:'김밀당T' },
+  ];
+  var USING_SAMPLE = !(Array.isArray(window.ROSTER) && window.ROSTER.length);
+  function getRoster(){ return USING_SAMPLE ? SAMPLE_ROSTER : window.ROSTER; }
+
+  var doneSet = new Set();     // 세션 동안만 유지 (새로고침 시 초기화)
+  var activeKey = null;
+  var threshold = 10;          // 7 또는 10일차
+  var deptFilter = '';
+
+  function keyOf(it){ return (it.name||'') + '|' + (it.start||''); }
+  function parseDate(s){
+    if(!s) return null;
+    var m = String(s).match(/(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})/);
+    return m ? new Date(+m[1], +m[2]-1, +m[3]) : null;
+  }
+  function dayCount(startStr){           // 개강일 당일 = 1일차
+    var d = parseDate(startStr); if(!d) return null;
+    var t = new Date(), today = new Date(t.getFullYear(),t.getMonth(),t.getDate());
+    return Math.floor((today - d)/86400000) + 1;
+  }
+  function isEnded(it){
+    return it.ended===true || /^(true|y|yes|완료|종료|1)$/i.test(String(it.ended||''));
+  }
+  function normTeacher(s){   // '김밀당T' 와 '김밀당' 을 같게 취급
+    return String(s||'').trim().replace(/\s+/g,'').replace(/(선생님|쌤|T)$/i,'');
+  }
+
+  function loadStudent(it){
+    document.getElementById('sName').value = it.name || '';
+    S.name = it.name || '';
+    var g = GRADE_MAP[it.grade] || it.grade || '';
+    var gsel = document.getElementById('sGrade');
+    if(gsel){ gsel.value = g; S.grade = g; }
+    var subjKey = (typeof normalizeSubject==='function') ? normalizeSubject(it.curri||'') : '';
+    var subSel = document.getElementById('sSubject');
+    var unitSel = document.getElementById('sUnit');
+    var unitCustom = document.getElementById('sUnitCustom');
+    if(subjKey && subSel){
+      subSel.value = subjKey; S.subject = subjKey;
+      if(typeof populateUnits==='function') populateUnits(subjKey);
+      if(unitSel) unitSel.value=''; if(unitCustom) unitCustom.value='';
+      S.unit = '';
+    } else if(it.curri){ S.subject = it.curri; }
+    /* 학생 정보 박스가 접혀 있으면 펼쳐서 채워진 값이 보이게 */
+    var siBody = document.getElementById('studInfoBody');
+    var siIcon = document.getElementById('studInfoIcon');
+    if(siBody && !siBody.classList.contains('open')){
+      siBody.classList.add('open');
+      if(siIcon) siIcon.textContent = '접기 ▲';
+    }
+    if(typeof sync==='function') sync(); else if(typeof render==='function') render();
+  }
+
+  function populateDeptFilter(){
+    var sel = document.getElementById('rosterDeptFilter'); if(!sel) return;
+    var depts = Array.from(new Set(getRoster().map(function(it){return it.dept;}).filter(Boolean)));
+    sel.innerHTML = '<option value="">전체 부서</option>' +
+      depts.map(function(d){return '<option value="'+d+'">'+d+'</option>';}).join('');
+  }
+
+  function renderRoster(){
+    var listEl  = document.getElementById('rosterList');
+    var countEl = document.getElementById('rosterCount');
+    if(!listEl) return;
+
+    var teacherInput = normTeacher((document.getElementById('sTeacher')||{}).value);
+
+    var items = getRoster().map(function(it){
+      return Object.assign({}, it, { _dc: dayCount(it.start), _key: keyOf(it) });
+    }).filter(function(it){
+      if(isEnded(it)) return false;
+      if(it._dc===null || it._dc < 1 || it._dc > threshold) return false;
+      if(deptFilter && it.dept !== deptFilter) return false;
+      if(teacherInput && normTeacher(it.teacher) !== teacherInput) return false;  // 담당 선생님 일치만
+      return true;
+    });
+
+    items.sort(function(a,b){
+      var ad=doneSet.has(a._key)?1:0, bd=doneSet.has(b._key)?1:0;
+      if(ad!==bd) return ad-bd;
+      return (b._dc||0)-(a._dc||0);
+    });
+
+    var pending = items.filter(function(it){return !doneSet.has(it._key);}).length;
+    if(countEl){
+      countEl.textContent = pending>0 ? ('미작성 '+pending+'명') : '전원 완료 ✓';
+      countEl.classList.toggle('done-all', pending===0);
+    }
+
+    if(!items.length){
+      var tname = (document.getElementById('sTeacher')||{}).value || '';
+      listEl.innerHTML = '<div class="roster-empty">'+
+        (tname ? '<b>'+tname+'</b> 담당 · ' : '')+threshold+'일차 이내 대상이 없습니다.'+
+        (USING_SAMPLE ? '<br><b>※ roster.js 미연결 (샘플 표시 중)</b>' : '')+'</div>';
+      return;
+    }
+
+    listEl.innerHTML = '';
+    if(USING_SAMPLE){
+      var warn = document.createElement('div');
+      warn.className='roster-empty'; warn.style.padding='6px'; warn.style.marginBottom='4px';
+      warn.innerHTML='<b>※ roster.js 미연결 — 샘플 명단입니다</b>';
+      listEl.appendChild(warn);
+    }
+
+    items.forEach(function(it){
+      var done = doneSet.has(it._key);
+      var card = document.createElement('div');
+      card.className = 'roster-card' + (it._key===activeKey?' active':'') + (done?' done':'');
+
+      var badgeCls = 'roster-day-badge';
+      if(it._dc >= threshold-1) badgeCls += ' urgent';
+      else if(it._dc >= threshold-3) badgeCls += ' soon';
+
+      card.innerHTML =
+        '<div class="'+badgeCls+'">'+it._dc+'일차</div>'+
+        '<div class="roster-card-main">'+
+          '<div class="roster-card-name">'+(it.name||'?')+
+            (it.dept?'<span class="rc-dept">'+it.dept+'</span>':'')+'</div>'+
+          '<div class="roster-card-sub">'+(it.grade||'')+
+            (it.curri?' · '+it.curri:'')+'</div>'+
+        '</div>'+
+        '<button class="roster-done-btn'+(done?' on':'')+'" title="작성 완료 표시">✓</button>';
+
+      card.addEventListener('click', function(e){
+        if(e.target.classList.contains('roster-done-btn')) return;
+        activeKey = it._key;
+        loadStudent(it);
+        renderRoster();
+      });
+      card.querySelector('.roster-done-btn').addEventListener('click', function(e){
+        e.stopPropagation();
+        if(doneSet.has(it._key)) doneSet.delete(it._key); else doneSet.add(it._key);
+        renderRoster();
+      });
+
+      listEl.appendChild(card);
+    });
+  }
+
+  var deptSel = document.getElementById('rosterDeptFilter');
+  if(deptSel) deptSel.addEventListener('change', function(){ deptFilter=this.value; renderRoster(); });
+  var teacherEl = document.getElementById('sTeacher');
+  if(teacherEl) teacherEl.addEventListener('input', function(){ renderRoster(); });
+  [['rosterDay7',7],['rosterDay10',10]].forEach(function(pair){
+    var btn = document.getElementById(pair[0]); if(!btn) return;
+    btn.addEventListener('click', function(){
+      threshold = pair[1];
+      document.getElementById('rosterDay7').classList.toggle('on', threshold===7);
+      document.getElementById('rosterDay10').classList.toggle('on', threshold===10);
+      renderRoster();
+    });
+  });
+
+  populateDeptFilter();
+  renderRoster();
+})();
 
 qsUpdatePreview();
 render();
