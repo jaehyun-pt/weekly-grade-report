@@ -410,7 +410,7 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
       <button class="qs-toggle-btn" id="qsToggleBtn">접기 ▲</button>
     </div>
     <div class="qs-body" id="qsBody">
-      <div class="fg"><label>담당 선생님</label><input id="sTeacher" value="김밀당T"></div>
+      <div class="fg"><label>담당 선생님</label><input id="sTeacher" value="김밀당"></div>
       <div class="fg"><label>학습 기간</label><input id="sPeriod" value="6월 3주차"></div>
     </div>
   </div>
@@ -421,13 +421,6 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
     <div class="roster-head">
       <div class="roster-title">🗓️ 개강 대상 명단</div>
       <span class="roster-count" id="rosterCount">–</span>
-    </div>
-    <div class="roster-controls">
-      <select id="rosterDeptFilter"><option value="">전체 부서</option></select>
-      <div class="roster-day-btns">
-        <button class="roster-day-btn" id="rosterDay7" data-day="7">7일차</button>
-        <button class="roster-day-btn on" id="rosterDay10" data-day="10">10일차</button>
-      </div>
     </div>
     <div class="roster-list" id="rosterList"></div>
   </div>
@@ -2488,8 +2481,6 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
 
   var doneSet = new Set();     // 세션 동안만 유지 (새로고침 시 초기화)
   var activeKey = null;
-  var threshold = 10;          // 7 또는 10일차
-  var deptFilter = '';
 
   function keyOf(it){ return (it.name||'') + '|' + (it.start||''); }
   function parseDate(s){
@@ -2535,13 +2526,6 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
     if(typeof sync==='function') sync(); else if(typeof render==='function') render();
   }
 
-  function populateDeptFilter(){
-    var sel = document.getElementById('rosterDeptFilter'); if(!sel) return;
-    var depts = Array.from(new Set(getRoster().map(function(it){return it.dept;}).filter(Boolean)));
-    sel.innerHTML = '<option value="">전체 부서</option>' +
-      depts.map(function(d){return '<option value="'+d+'">'+d+'</option>';}).join('');
-  }
-
   function renderRoster(){
     var listEl  = document.getElementById('rosterList');
     var countEl = document.getElementById('rosterCount');
@@ -2553,9 +2537,8 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
       return Object.assign({}, it, { _dc: dayCount(it.start), _key: keyOf(it) });
     }).filter(function(it){
       if(isEnded(it)) return false;
-      if(it._dc===null || it._dc < 1 || it._dc > threshold) return false;
-      if(deptFilter && it.dept !== deptFilter) return false;
-      if(teacherInput && normTeacher(it.teacher) !== teacherInput) return false;  // 담당 선생님 일치만
+      if(it._dc===null || it._dc < 1) return false;
+      if(teacherInput && normTeacher(it.teacher) !== teacherInput) return false;
       return true;
     });
 
@@ -2574,7 +2557,7 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
     if(!items.length){
       var tname = (document.getElementById('sTeacher')||{}).value || '';
       listEl.innerHTML = '<div class="roster-empty">'+
-        (tname ? '<b>'+tname+'</b> 담당 · ' : '')+threshold+'일차 이내 대상이 없습니다.'+
+        (tname ? '<b>'+tname+'</b> 담당 · ' : '')+'대상 학생이 없습니다.'+
         (USING_SAMPLE ? '<br><b>※ roster.js 미연결 (샘플 표시 중)</b>' : '')+'</div>';
       return;
     }
@@ -2593,8 +2576,8 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
       card.className = 'roster-card' + (it._key===activeKey?' active':'') + (done?' done':'');
 
       var badgeCls = 'roster-day-badge';
-      if(it._dc >= threshold-1) badgeCls += ' urgent';
-      else if(it._dc >= threshold-3) badgeCls += ' soon';
+      if(it._dc >= 8) badgeCls += ' urgent';
+      else if(it._dc >= 5) badgeCls += ' soon';
 
       card.innerHTML =
         '<div class="'+badgeCls+'">'+it._dc+'일차</div>'+
@@ -2622,21 +2605,9 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
     });
   }
 
-  var deptSel = document.getElementById('rosterDeptFilter');
-  if(deptSel) deptSel.addEventListener('change', function(){ deptFilter=this.value; renderRoster(); });
   var teacherEl = document.getElementById('sTeacher');
   if(teacherEl) teacherEl.addEventListener('input', function(){ renderRoster(); });
-  [['rosterDay7',7],['rosterDay10',10]].forEach(function(pair){
-    var btn = document.getElementById(pair[0]); if(!btn) return;
-    btn.addEventListener('click', function(){
-      threshold = pair[1];
-      document.getElementById('rosterDay7').classList.toggle('on', threshold===7);
-      document.getElementById('rosterDay10').classList.toggle('on', threshold===10);
-      renderRoster();
-    });
-  });
 
-  populateDeptFilter();
   renderRoster();
 })();
 
