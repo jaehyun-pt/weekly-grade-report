@@ -410,7 +410,7 @@ body{font-family:'Pretendard','Noto Sans KR',sans-serif;background:#d8dee8;min-h
       <button class="qs-toggle-btn" id="qsToggleBtn">접기 ▲</button>
     </div>
     <div class="qs-body" id="qsBody">
-      <div class="fg"><label>담당 선생님</label><input id="sTeacher" value="김밀당"></div>
+      <div class="fg"><label>담당 선생님</label><input id="sTeacher" value="김밀당T"></div>
       <div class="fg"><label>학습 기간</label><input id="sPeriod" value="6월 3주차"></div>
     </div>
   </div>
@@ -2357,19 +2357,16 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
     if(unitSel){ unitSel.value = '도함수의 활용'; S.unit = '도함수의 활용'; }
   }
 
-  /* 오늘 날짜 기준 '몇 월 몇 주차' 자동 계산 (월요일 시작 주) */
+  /* 오늘 날짜 기준 '몇 월 몇 주차' 자동 계산 (ISO 8601 기준)
+     · 주는 월요일 시작
+     · 그 주의 '목요일'이 속한 달의 N번째 주로 판정 */
   function getWeekLabel(date){
-    const m = date.getMonth();
-    const d = date.getDate();
-    const first = new Date(date.getFullYear(), m, 1);
-    const firstDow = first.getDay();                 // 0=일 ~ 6=토
-    const firstOffsetToMon = (firstDow === 0) ? -6 : (1 - firstDow);
-    const firstMonDate = 1 + firstOffsetToMon;       // 1일이 속한 주의 월요일 날짜값
-    const dow = date.getDay();
-    const offsetToMon = (dow === 0) ? -6 : (1 - dow);
-    const thisMonDate = d + offsetToMon;             // 이번 주 월요일 날짜값
-    const weekNo = Math.floor((thisMonDate - firstMonDate) / 7) + 1;
-    return `${m+1}월 ${weekNo}주차`;
+    const day = date.getDay();                        // 0=일 ~ 6=토
+    const mondayOffset = (day === 0) ? -6 : (1 - day);
+    const monday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + mondayOffset);
+    const thursday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 3);
+    const weekNo = Math.floor((thursday.getDate() - 1) / 7) + 1;
+    return `${thursday.getMonth() + 1}월 ${weekNo}주차`;
   }
   const periodEl = document.getElementById('sPeriod');
   if(periodEl){
@@ -2515,7 +2512,11 @@ document.getElementById('badPresetRow').querySelectorAll('.tag-preset-btn').forE
       if(typeof populateUnits==='function') populateUnits(subjKey);
       if(unitSel) unitSel.value=''; if(unitCustom) unitCustom.value='';
       S.unit = '';
-    } else if(it.curri){ S.subject = it.curri; }
+    } else if(it.curri){
+      /* 드롭다운 매칭 실패 → 직접입력란에 현 커리 값을 채움 */
+      if(subSel){ subSel.value = ''; } S.subject = '';
+      if(unitCustom){ unitCustom.value = it.curri; } S.unit = it.curri;
+    }
     /* 학생 정보 박스가 접혀 있으면 펼쳐서 채워진 값이 보이게 */
     var siBody = document.getElementById('studInfoBody');
     var siIcon = document.getElementById('studInfoIcon');
