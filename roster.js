@@ -1,5 +1,77 @@
 window.ROSTER = [
   {
+    "dept": "주말팀",
+    "name": "이하랑",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-10-17",
+    "ended": false,
+    "teacher": "권도연B"
+  },
+  {
+    "dept": "주말팀",
+    "name": "윤서희",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-10-17",
+    "ended": false,
+    "teacher": "권도연B"
+  },
+  {
+    "dept": "주말팀",
+    "name": "이세아",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-10-17",
+    "ended": false,
+    "teacher": "유지원"
+  },
+  {
+    "dept": "주말팀",
+    "name": "박수연",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-10-17",
+    "ended": false,
+    "teacher": "김한나B"
+  },
+  {
+    "dept": "주말팀",
+    "name": "박수연",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-10-17",
+    "ended": false,
+    "teacher": "김한나B"
+  },
+  {
+    "dept": "주말팀",
+    "name": "김동준",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-10-17",
+    "ended": false,
+    "teacher": "김한나B"
+  },
+  {
+    "dept": "주말팀",
+    "name": "이승범",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-10-17",
+    "ended": false,
+    "teacher": "최승원B"
+  },
+  {
+    "dept": "주말팀",
+    "name": "박은혁",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-10-18",
+    "ended": false,
+    "teacher": "최승원B"
+  },
+  {
     "dept": "고등3A팀",
     "name": "한예원",
     "grade": "고3",
@@ -802,119 +874,11 @@ window.ROSTER = [
   },
   {
     "dept": "주말팀",
-    "name": "박하준",
-    "grade": "고2",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "김승연"
-  },
-  {
-    "dept": "주말팀",
-    "name": "안현영",
-    "grade": "N수생",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "권도연B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "이엘리",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "유지원"
-  },
-  {
-    "dept": "주말팀",
-    "name": "방윤아",
-    "grade": "고1",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "유지원"
-  },
-  {
-    "dept": "주말팀",
     "name": "이서율",
     "grade": "중3",
     "curri": "",
     "start": "2026-10-11",
     "ended": false,
     "teacher": "김한나B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "김영은",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "최승원B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "김서정",
-    "grade": "고1",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "최승원B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "김영은",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "최승원B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "이지율",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "최승원B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "백준수",
-    "grade": "고1",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "김한나B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "박시우",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "김한나B"
-  },
-  {
-    "dept": "주말팀",
-    "name": "이도윤",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "이준용"
-  },
-  {
-    "dept": "주말팀",
-    "name": "신유진",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-10",
-    "ended": false,
-    "teacher": "이준용"
   }
 ];
