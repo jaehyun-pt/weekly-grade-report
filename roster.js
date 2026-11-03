@@ -1,5 +1,563 @@
 window.ROSTER = [
   {
+    "dept": "고등1A팀",
+    "name": "전다예",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-11-03",
+    "ended": false,
+    "teacher": "백준원"
+  },
+  {
+    "dept": "고등1A팀",
+    "name": "유민교",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-11-03",
+    "ended": false,
+    "teacher": "박수민"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "이지수",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-03",
+    "ended": false,
+    "teacher": "김유정B"
+  },
+  {
+    "dept": "초등팀",
+    "name": "구나현",
+    "grade": "초5",
+    "curri": "",
+    "start": "2026-11-03",
+    "ended": false,
+    "teacher": "맹윤정"
+  },
+  {
+    "dept": "초등팀",
+    "name": "오승민",
+    "grade": "초5",
+    "curri": "",
+    "start": "2026-11-03",
+    "ended": false,
+    "teacher": "맹윤정"
+  },
+  {
+    "dept": "고등1A팀",
+    "name": "기정민",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "백준원"
+  },
+  {
+    "dept": "고등1A팀",
+    "name": "장재하",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "박수민"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "임주연",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "김서현",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "송승연",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "조은별",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "박민주",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "이효원",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "김다영",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "남국현",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "손석범",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "서유주",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "나서경",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "오채원",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "허단비",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "송준영",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "박지원",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정성윤"
+  },
+  {
+    "dept": "고등1A팀",
+    "name": "김나원",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "이정훈B"
+  },
+  {
+    "dept": "고등1A팀",
+    "name": "나예준",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "이정훈B"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "박세윤",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "정희승"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "김건우",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "이창세"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "안서희",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "이창세"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "강지후",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "전다운"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "임지유",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "전다운"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "안나",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "전다운"
+  },
+  {
+    "dept": "B2B사업팀",
+    "name": "남태혁",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "이상민"
+  },
+  {
+    "dept": "B2B사업팀",
+    "name": "김가람",
+    "grade": "고2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "이상민"
+  },
+  {
+    "dept": "중등2A팀",
+    "name": "김하린",
+    "grade": "중1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "윤두현"
+  },
+  {
+    "dept": "중등2A팀",
+    "name": "박하린",
+    "grade": "중1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "윤두현"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "이승연",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "강민정"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "김재우",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "강민정"
+  },
+  {
+    "dept": "",
+    "name": "이승우",
+    "grade": "중3",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "장동원C"
+  },
+  {
+    "dept": "초등팀",
+    "name": "황예성",
+    "grade": "초4",
+    "curri": "초4-2",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "맹윤정"
+  },
+  {
+    "dept": "",
+    "name": "김윤희",
+    "grade": "",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "윤두현"
+  },
+  {
+    "dept": "고등2A팀",
+    "name": "조정윤",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "조은준"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "박태민",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "박지현"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "이예담",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "김민철"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "이영원",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "박지현"
+  },
+  {
+    "dept": "중등2A팀",
+    "name": "송도겸",
+    "grade": "중1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "조예린"
+  },
+  {
+    "dept": "중등3A팀",
+    "name": "서은비",
+    "grade": "중2",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "박지현"
+  },
+  {
+    "dept": "중등2A팀",
+    "name": "강유진",
+    "grade": "중1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "장재윤"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "강하민",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "김유정B"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "박소연",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "김유정B"
+  },
+  {
+    "dept": "중등2A팀",
+    "name": "김현서",
+    "grade": "중1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "오정민"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "한예은",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "노경무"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "이서준",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "김새미B"
+  },
+  {
+    "dept": "중등1A팀",
+    "name": "박민준",
+    "grade": "초6",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "김새미B"
+  },
+  {
+    "dept": "초등팀",
+    "name": "김승아",
+    "grade": "초5",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "서주연"
+  },
+  {
+    "dept": "초등팀",
+    "name": "박채원",
+    "grade": "초5",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "서주연"
+  },
+  {
+    "dept": "초등팀",
+    "name": "박서은",
+    "grade": "초4",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "박소희"
+  },
+  {
+    "dept": "초등팀",
+    "name": "서지민",
+    "grade": "초5",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "박소희"
+  },
+  {
+    "dept": "초등팀",
+    "name": "엄희준",
+    "grade": "초5",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "박소희"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "박시은",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "송기종"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "전요하",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "송기종"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "이지효",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "송기종"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "홍석우",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "송기종"
+  },
+  {
+    "dept": "고등3A팀",
+    "name": "황태희",
+    "grade": "고1",
+    "curri": "",
+    "start": "2026-11-02",
+    "ended": false,
+    "teacher": "송기종"
+  },
+  {
     "dept": "주말팀",
     "name": "송가은",
     "grade": "중3",
@@ -286,384 +844,6 @@ window.ROSTER = [
     "start": "2026-10-27",
     "ended": false,
     "teacher": "조예린"
-  },
-  {
-    "dept": "",
-    "name": "황예성",
-    "grade": "",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "맹윤정"
-  },
-  {
-    "dept": "고등1A팀",
-    "name": "김승진",
-    "grade": "중3",
-    "curri": "중1-1",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "장규필B"
-  },
-  {
-    "dept": "고등1A팀",
-    "name": "고연우",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "이현정C"
-  },
-  {
-    "dept": "고등1A팀",
-    "name": "고효민",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "백준원"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "조정빈",
-    "grade": "중1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "이주헌"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "신대원",
-    "grade": "초6",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "허유나"
-  },
-  {
-    "dept": "중등3A팀",
-    "name": "이시온",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "박지현"
-  },
-  {
-    "dept": "중등3A팀",
-    "name": "강희진",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "박지현"
-  },
-  {
-    "dept": "중등3A팀",
-    "name": "조성훈",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "박지현"
-  },
-  {
-    "dept": "중등3A팀",
-    "name": "정운성",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "박지현"
-  },
-  {
-    "dept": "",
-    "name": "장연서",
-    "grade": "",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "오정민"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "맹정우",
-    "grade": "중1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "오정민"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "이지호",
-    "grade": "중1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "오정민"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "채루하",
-    "grade": "중1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "오정민"
-  },
-  {
-    "dept": "고등2A팀",
-    "name": "임현주",
-    "grade": "고1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김남현"
-  },
-  {
-    "dept": "고등3A팀",
-    "name": "김수현",
-    "grade": "고2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "정성윤"
-  },
-  {
-    "dept": "고등2A팀",
-    "name": "양지희",
-    "grade": "고1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김남현"
-  },
-  {
-    "dept": "고등1A팀",
-    "name": "김서연",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "백준원"
-  },
-  {
-    "dept": "고등1A팀",
-    "name": "이시우",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "이현정C"
-  },
-  {
-    "dept": "고등1A팀",
-    "name": "김하준",
-    "grade": "중3",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "이현정C"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "이사랑",
-    "grade": "초6",
-    "curri": "초6-2",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김새미B"
-  },
-  {
-    "dept": "고등3A팀",
-    "name": "정예나",
-    "grade": "고2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "홍세영"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "차시윤",
-    "grade": "중1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "장재윤"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "안제혁",
-    "grade": "중1",
-    "curri": "중1-2",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "조예린"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "정루빈",
-    "grade": "초6",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김민철"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "편유리",
-    "grade": "초6",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김민철"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "신다원",
-    "grade": "초6",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "정희승"
-  },
-  {
-    "dept": "중등3A팀",
-    "name": "장하나",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "이창세"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "김도아",
-    "grade": "초6",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김유정B"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "고강현",
-    "grade": "초6",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "노경무"
-  },
-  {
-    "dept": "중등3A팀",
-    "name": "박정아",
-    "grade": "중2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "천명준"
-  },
-  {
-    "dept": "고등2A팀",
-    "name": "박주현",
-    "grade": "고1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김민형"
-  },
-  {
-    "dept": "고등2A팀",
-    "name": "권예훈",
-    "grade": "고1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김민형"
-  },
-  {
-    "dept": "고등3A팀",
-    "name": "김윤아",
-    "grade": "고2",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "홍세영"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "성연아",
-    "grade": "중1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "조예린"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "이서준",
-    "grade": "중1",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "조예린"
-  },
-  {
-    "dept": "중등2A팀",
-    "name": "채주하",
-    "grade": "중1",
-    "curri": "중1-2",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김예지B"
-  },
-  {
-    "dept": "중등1A팀",
-    "name": "하윤진",
-    "grade": "초6",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "김새미B"
-  },
-  {
-    "dept": "초등팀",
-    "name": "이윤호",
-    "grade": "초3",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "맹윤정"
-  },
-  {
-    "dept": "초등팀",
-    "name": "류재윤",
-    "grade": "초4",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "박소희"
-  },
-  {
-    "dept": "초등팀",
-    "name": "전하영",
-    "grade": "초5",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "박소희"
-  },
-  {
-    "dept": "초등팀",
-    "name": "지예준",
-    "grade": "초5",
-    "curri": "",
-    "start": "2026-10-26",
-    "ended": false,
-    "teacher": "박소희"
   },
   {
     "dept": "초등팀",
